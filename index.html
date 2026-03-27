@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Adam Sami — Data Analytics Portfolio</title>
+  <title>Adam Sami - Data Analytics Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,35 +27,8 @@
       color: var(--text);
       font-family: 'DM Mono', monospace;
       overflow-x: hidden;
-      cursor: none;
     }
 
-    /* CUSTOM CURSOR */
-    .cursor {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background: var(--accent);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
-      mix-blend-mode: difference;
-    }
-    .cursor-ring {
-      position: fixed;
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--accent);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: transform 0.12s ease, width 0.2s, height 0.2s, opacity 0.2s;
-      opacity: 0.5;
-    }
-    body:hover .cursor { opacity: 1; }
 
     /* NOISE OVERLAY */
     body::before {
@@ -186,7 +159,6 @@
       color: var(--bg);
       background: var(--accent);
       transition: all 0.2s ease;
-      cursor: none;
     }
     .btn:hover { background: transparent; color: var(--accent); }
     .btn-ghost {
@@ -294,7 +266,6 @@
       transition: background 0.3s;
       text-decoration: none;
       color: inherit;
-      cursor: none;
     }
     .project-card::before {
       content: '';
@@ -395,7 +366,6 @@
       font-size: 0.78rem;
       letter-spacing: 0.05em;
       transition: color 0.2s;
-      cursor: none;
     }
     .contact-link:hover { color: var(--accent); }
     .contact-link-icon { font-size: 1rem; }
@@ -440,8 +410,6 @@
 </head>
 <body>
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
 
   <!-- NAV -->
   <nav id="nav">
@@ -468,7 +436,7 @@
     </p>
     <div class="hero-cta">
       <a href="#projects" class="btn">View Projects</a>
-      <a href="mailto:adam.sami@mail.utoronto.ca" class="btn btn-ghost">Get In Touch</a>
+      <a href="mailto:adamwaleedsami@gmail.com" class="btn btn-ghost">Get In Touch</a>
     </div>
     <div class="hero-scroll">
       <div class="scroll-line"></div>
@@ -577,9 +545,9 @@
         </p>
       </div>
       <div class="contact-links reveal">
-        <a href="mailto:adam.sami@mail.utoronto.ca" class="contact-link">
+        <a href="mailto:adamwaleedsami@gmail.com" class="contact-link">
           <span class="contact-link-icon">✉</span>
-          adam.sami@mail.utoronto.ca
+          adamwaleedsami@gmail.com
         </a>
         <a href="https://github.com/adamsami-62" target="_blank" class="contact-link">
           <span class="contact-link-icon">⌥</span>
@@ -600,21 +568,6 @@
   </footer>
 
   <script>
-    // CURSOR
-    const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursorRing');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    function animCursor() {
-      cursor.style.left = mx + 'px';
-      cursor.style.top = my + 'px';
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
-      ring.style.left = rx + 'px';
-      ring.style.top = ry + 'px';
-      requestAnimationFrame(animCursor);
-    }
-    animCursor();
 
     // NAV SCROLL
     const nav = document.getElementById('nav');
