@@ -8,39 +8,39 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #f7f5f0;
-      --bg2: #efecea;
-      --surface: #ffffff;
-      --border: #e2dfd8;
-      --ink: #1a1a2e;
-      --ink2: #4a4a5a;
-      --muted: #9a9a9a;
-      --accent-warm: #c4622d;
+      --bg: #ffffff;
+      --bg2: #eaf1fb;
+      --surface: #f5f8fd;
+      --border: #d6e1f0;
+      --ink: #0f2a4a;
+      --ink2: #3d5470;
+      --muted: #8597ad;
+      --accent: #1f5fd1;
     }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--ink); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 400; overflow-x: hidden; }
 
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 3rem; transition: background 0.3s, border-color 0.3s; border-bottom: 1px solid transparent; }
-    nav.scrolled { background: rgba(247,245,240,0.92); backdrop-filter: blur(10px); border-color: var(--border); }
+    nav.scrolled { background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-color: var(--border); }
     .nav-logo { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
-    .nav-logo span { color: var(--accent-warm); }
+    .nav-logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { color: var(--ink2); text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--accent-warm); }
+    .nav-links a:hover { color: var(--accent); }
 
     .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 3rem; position: relative; max-width: 900px; }
-    .hero-tag { font-size: 0.78rem; font-weight: 500; color: var(--accent-warm); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.5s ease forwards 0.1s; }
+    .hero-tag { font-size: 0.78rem; font-weight: 500; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.5s ease forwards 0.1s; }
     .hero-name { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(3.5rem, 8vw, 6.5rem); line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 1.8rem; opacity: 0; animation: fadeUp 0.5s ease forwards 0.25s; }
-    .hero-name em { font-style: italic; color: var(--accent-warm); }
+    .hero-name em { font-style: italic; color: var(--accent); }
     .hero-desc { max-width: 480px; font-size: 1rem; line-height: 1.75; color: var(--ink2); margin-bottom: 2.5rem; font-weight: 300; opacity: 0; animation: fadeUp 0.5s ease forwards 0.4s; }
     .hero-cta { display: flex; gap: 1rem; opacity: 0; animation: fadeUp 0.5s ease forwards 0.55s; }
-    .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; font-weight: 500; text-decoration: none; background: var(--ink); color: var(--bg); border: 1.5px solid var(--ink); border-radius: 2px; transition: all 0.2s ease; }
-    .btn:hover { background: var(--accent-warm); border-color: var(--accent-warm); }
+    .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; font-weight: 500; text-decoration: none; background: var(--ink); color: #ffffff; border: 1.5px solid var(--ink); border-radius: 2px; transition: all 0.2s ease; }
+    .btn:hover { background: var(--accent); border-color: var(--accent); }
     .btn-ghost { background: transparent; color: var(--ink2); border-color: var(--border); }
-    .btn-ghost:hover { border-color: var(--ink); color: var(--ink); background: transparent; }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
     .hero-scroll { position: absolute; bottom: 2.5rem; left: 3rem; display: flex; align-items: center; gap: 0.6rem; color: var(--muted); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0; animation: fadeUp 0.5s ease forwards 0.7s; }
     .scroll-line { width: 32px; height: 1px; background: var(--border); position: relative; overflow: hidden; }
-    .scroll-line::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--accent-warm); animation: scrollLine 2s ease infinite; }
+    .scroll-line::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--accent); animation: scrollLine 2s ease infinite; }
     @keyframes scrollLine { 0% { left: -100%; } 50% { left: 0%; } 100% { left: 100%; } }
 
     .about-strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.4rem 3rem; display: flex; gap: 3rem; background: var(--surface); overflow-x: auto; }
@@ -51,37 +51,43 @@
 
     section { padding: 6rem 3rem; }
     .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 3.5rem; }
-    .section-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.85rem; color: var(--accent-warm); font-weight: 300; }
+    .section-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.85rem; color: var(--accent); font-weight: 300; }
     .section-title { font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 300; letter-spacing: -0.02em; color: var(--ink); }
     .section-line { flex: 1; height: 1px; background: var(--border); margin-left: 0.5rem; }
 
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
     .project-card { background: var(--surface); border: 1px solid var(--border); padding: 2rem; display: flex; flex-direction: column; gap: 1rem; text-decoration: none; color: inherit; border-radius: 4px; transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s; }
-    .project-card:hover { border-color: var(--ink); box-shadow: 4px 4px 0px var(--ink); transform: translate(-2px, -2px); }
+    .project-card:hover { border-color: var(--accent); box-shadow: 4px 4px 0px var(--accent); transform: translate(-2px, -2px); }
+    .project-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     .project-card-top { display: flex; justify-content: space-between; align-items: flex-start; }
     .project-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.8rem; color: var(--muted); font-weight: 300; }
     .project-arrow { font-size: 1rem; color: var(--muted); transition: color 0.2s, transform 0.2s; }
-    .project-card:hover .project-arrow { color: var(--accent-warm); transform: translate(2px, -2px); }
+    .project-card:hover .project-arrow { color: var(--accent); transform: translate(2px, -2px); }
     .project-title { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 400; line-height: 1.25; color: var(--ink); letter-spacing: -0.01em; }
     .project-desc { font-size: 0.82rem; color: var(--ink2); line-height: 1.75; flex: 1; font-weight: 300; }
     .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.25rem; }
-    .tag { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.05em; padding: 0.25rem 0.6rem; background: var(--bg2); color: var(--ink2); border-radius: 2px; border: 1px solid var(--border); }
+    .tag { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.05em; padding: 0.25rem 0.6rem; background: var(--bg2); color: var(--accent); border-radius: 2px; border: 1px solid var(--border); }
 
     .contact-section { border-top: 1px solid var(--border); background: var(--surface); }
     .contact-inner { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; }
     .contact-left { max-width: 500px; }
     .contact-headline { font-family: 'Fraunces', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 300; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1rem; color: var(--ink); }
-    .contact-headline em { font-style: italic; color: var(--accent-warm); }
+    .contact-headline em { font-style: italic; color: var(--accent); }
     .contact-sub { font-size: 0.85rem; color: var(--ink2); line-height: 1.7; font-weight: 300; }
     .contact-links { display: flex; flex-direction: column; gap: 0.9rem; align-items: flex-end; }
     .contact-link { display: flex; align-items: center; gap: 0.5rem; color: var(--ink2); text-decoration: none; font-size: 0.82rem; font-weight: 400; transition: color 0.2s; }
-    .contact-link:hover { color: var(--accent-warm); }
+    .contact-link:hover { color: var(--accent); }
 
     footer { border-top: 1px solid var(--border); padding: 1.4rem 3rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--muted); }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .hero-tag, .hero-name, .hero-desc, .hero-cta, .hero-scroll, .reveal { opacity: 1; transform: none; }
+    }
 
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
@@ -101,7 +107,7 @@
     <ul class="nav-links">
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="https://github.com/adamsami-62" target="_blank">GitHub ↗</a></li>
+      <li><a href="https://github.com/adamsami-62" target="_blank">GitHub &#8599;</a></li>
     </ul>
   </nav>
 
@@ -109,8 +115,8 @@
     <p class="hero-tag">Data Analytics Portfolio</p>
     <h1 class="hero-name">Adam<br><em>Sami.</em></h1>
     <p class="hero-desc">
-      Chemical Engineering student at the University of Toronto and Machine Learning Engineer Intern at VertoAeris.
-      I work with data: cleaning it, exploring it, and turning it into something that actually means something.
+      Chemical Engineering student at the University of Toronto. Previously a Machine Learning Engineer Intern at VertoAeris
+      and a Product Management Co-op at Hammond Power Solutions. I work with data: cleaning it, exploring it, and turning it into something that actually means something.
     </p>
     <div class="hero-cta">
       <a href="#projects" class="btn">View Projects</a>
@@ -124,8 +130,8 @@
 
   <div class="about-strip reveal">
     <div class="strip-item">
-      <span class="strip-label">Currently</span>
-      <span class="strip-value">ML Engineer Intern @ VertoAeris</span>
+      <span class="strip-label">Previously</span>
+      <span class="strip-value">ML Engineer Intern @ VertoAeris<br>Product Management Co-op @ Hammond Power Solutions</span>
     </div>
     <div class="strip-divider"></div>
     <div class="strip-item">
@@ -135,7 +141,7 @@
     <div class="strip-divider"></div>
     <div class="strip-item">
       <span class="strip-label">Tools</span>
-      <span class="strip-value">Python · SQL · Tableau</span>
+      <span class="strip-value">Python &middot; SQL &middot; Tableau</span>
     </div>
     <div class="strip-divider"></div>
     <div class="strip-item">
@@ -152,60 +158,33 @@
     </div>
     <div class="projects-grid">
 
-      <a class="project-card reveal" href="https://github.com/adamsami-62/Fandango-Analysis" target="_blank">
+      <a class="project-card reveal" href="https://github.com/adamsami-62/nyc-crashes-project" target="_blank">
         <div class="project-card-top">
           <span class="project-num">001</span>
-          <span class="project-arrow">↗</span>
+          <span class="project-arrow">&#8599;</span>
         </div>
-        <h3 class="project-title">Fandango Rating Analysis</h3>
-        <p class="project-desc">Recreating the FiveThirtyEight investigation into Fandango's movie rating system. Explored whether Fandango was artificially inflating ratings, using kernel density plots and normalized score comparisons across multiple review platforms.</p>
+        <h3 class="project-title">NYC Crash Injury Analysis</h3>
+        <p class="project-desc">Mapped 782K police-reported NYC crashes onto 262 neighbourhoods to show where, when and how badly crashes happen. A gradient-boosting model and a logistic regression, tested on a held-out year, show that what a crash involved explains injury risk far more than where or when it happened. The top-scored 10% of crashes involved an injury 85% of the time, against 44% overall.</p>
         <div class="project-tags">
           <span class="tag">Python</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">Seaborn</span>
+          <span class="tag">GeoPandas</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">Statsmodels</span>
         </div>
       </a>
 
-      <a class="project-card reveal" href="https://github.com/adamsami-62/Sales-Data-Analysis" target="_blank">
+      <a class="project-card reveal" href="https://github.com/adamsami-62/oct-scan-disease-detector" target="_blank">
         <div class="project-card-top">
           <span class="project-num">002</span>
-          <span class="project-arrow">↗</span>
+          <span class="project-arrow">&#8599;</span>
         </div>
-        <h3 class="project-title">Retail Sales Analysis</h3>
-        <p class="project-desc">End-to-end analysis of 4 years of superstore sales data. Cleaned and explored the dataset in PostgreSQL, querying by state, shipping method, customer type, and month, then built an interactive Tableau dashboard to visualize the findings.</p>
-        <div class="project-tags">
-          <span class="tag">SQL</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Tableau</span>
-        </div>
-      </a>
-
-      <a class="project-card reveal" href="https://github.com/adamsami-62/Toronto-Bike-Share-Analysis" target="_blank">
-        <div class="project-card-top">
-          <span class="project-num">003</span>
-          <span class="project-arrow">↗</span>
-        </div>
-        <h3 class="project-title">Toronto Bike Share Analysis</h3>
-        <p class="project-desc">Analyzed 2021 ridership data from Bike Share Toronto. Used Python and Selenium to scrape GPS coordinates for every station via Google Maps, then visualized trip patterns and station activity in Tableau.</p>
+        <h3 class="project-title">OCT Scan Disease Detector</h3>
+        <p class="project-desc">A convolutional neural network trained from scratch to classify retinal OCT scans as CNV, DME, drusen or normal. Reached 85.2% test accuracy against 75.5% for a HOG + SVM baseline, then used Grad-CAM to check which parts of each scan drove its decisions, and tested it on scans from a different scanner.</p>
         <div class="project-tags">
           <span class="tag">Python</span>
-          <span class="tag">Selenium</span>
-          <span class="tag">Tableau</span>
-        </div>
-      </a>
-
-      <a class="project-card reveal" href="https://github.com/adamsami-62/Seoul-Bike-Demand-Forecasting" target="_blank">
-        <div class="project-card-top">
-          <span class="project-num">004</span>
-          <span class="project-arrow">↗</span>
-        </div>
-        <h3 class="project-title">Seoul Bike Demand Forecasting</h3>
-        <p class="project-desc">End-to-end hourly demand forecasting pipeline using weather conditions, time features, and lagged demand signals. Walk-forward cross-validation with a final 30-day holdout. Champion model achieved R² of 0.97 and reduced MAE by 68% over naive baselines.</p>
-        <div class="project-tags">
-          <span class="tag">Python</span>
-          <span class="tag">Scikit-learn</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">Matplotlib</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">Grad-CAM</span>
         </div>
       </a>
 
@@ -222,16 +201,16 @@
         </p>
       </div>
       <div class="contact-links reveal">
-        <a href="mailto:adamwaleedsami&#64;gmail.com" class="contact-link">✉ adamwaleedsami@gmail.com</a>
-        <a href="https://github.com/adamsami-62" target="_blank" class="contact-link">⌥ github.com/adamsami-62</a>
-        <a href="https://www.linkedin.com/in/adamsami/" target="_blank" class="contact-link">◈ linkedin.com/in/adamsami</a>
+        <a href="mailto:adamwaleedsami&#64;gmail.com" class="contact-link">&#9993; adamwaleedsami@gmail.com</a>
+        <a href="https://github.com/adamsami-62" target="_blank" class="contact-link">&#8997; github.com/adamsami-62</a>
+        <a href="https://www.linkedin.com/in/adamsami/" target="_blank" class="contact-link">&#9672; linkedin.com/in/adamsami</a>
       </div>
     </div>
   </section>
 
   <footer>
-    <span>© 2026 Adam Sami</span>
-    <span>Built with HTML · CSS · JS</span>
+    <span>&copy; 2026 Adam Sami</span>
+    <span>Built with HTML &middot; CSS &middot; JS</span>
   </footer>
 
   <script>
